@@ -1,0 +1,9 @@
+D:\solution_architecture\repos\DockService\DockService.App\DockService.Core\bin\Debug\netcoreapp2.0\DockService.Core.deps.json
+D:\solution_architecture\repos\DockService\DockService.App\DockService.Core\bin\Debug\netcoreapp2.0\DockService.Core.dll
+D:\solution_architecture\repos\DockService\DockService.App\DockService.Core\obj\Debug\netcoreapp2.0\DockService.Core.csprojResolveAssemblyReference.cache
+D:\solution_architecture\repos\DockService\DockService.App\DockService.Core\obj\Debug\netcoreapp2.0\DockService.Core.csproj.CoreCompileInputs.cache
+D:\solution_architecture\repos\DockService\DockService.App\DockService.Core\obj\Debug\netcoreapp2.0\DockService.Core.AssemblyInfoInputs.cache
+D:\solution_architecture\repos\DockService\DockService.App\DockService.Core\obj\Debug\netcoreapp2.0\DockService.Core.AssemblyInfo.cs
+D:\solution_architecture\repos\DockService\DockService.App\DockService.Core\bin\Debug\netcoreapp2.0\DockService.Core.pdb
+D:\solution_architecture\repos\DockService\DockService.App\DockService.Core\obj\Debug\netcoreapp2.0\DockService.Core.dll
+D:\solution_architecture\repos\DockService\DockService.App\DockService.Core\obj\Debug\netcoreapp2.0\DockService.Core.pdb
