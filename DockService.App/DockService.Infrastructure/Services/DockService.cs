@@ -14,13 +14,12 @@ namespace DockService.Infrastructure.Services
        
         private readonly IEventPublisher _eventPublisher;
 
-        public DockService(IEventPublisher eventPublisher)//add IShipRepository shipRepository in constr. and varia to use persistence
-        {
-          //  _shipRepository = shipRepository;
+        public DockService(IEventPublisher eventPublisher)
+        {        
             _eventPublisher = eventPublisher;
            }
 
-    
+        #region ---for extendability---
         public Task<Ship> CreateShipAsync(Ship ship)
         {
             throw new NotImplementedException();
@@ -35,7 +34,7 @@ namespace DockService.Infrastructure.Services
         {
             throw new NotImplementedException();
         }
-
+        #endregion
         public Task SendShipDockedAsync(Ship ship)
         {
             return Task.Run(async () =>

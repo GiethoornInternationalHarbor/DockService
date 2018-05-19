@@ -30,13 +30,9 @@ namespace DockService.App.Messaging
                     {
                         return await HandleShipUndock(message);
                     }
-               /* case EventTypes.ShipDocked:
+                case EventTypes.Unknown:
                     {
-                        return await HandleShipDocked(message);
-                    }*/
-                case EventTypes.ShipUndocked:
-                    {
-                        return await HandleShipUndocked(message);
+                        return true;
                     }
             }
 
@@ -51,13 +47,8 @@ namespace DockService.App.Messaging
             Ship receivedShip = JsonSerializer.Deserialize<Ship>(message);
 
             // set enum
-            receivedShip.DockingStatus = DockingStatus.ShipDockingRequested;
-            /*
-            // TODO: save in repo?
-            Ship createdShip = await _dockService.CreateShipAsync(receivedShip);
-            */
-          
-            Task.Run(() => _dockService.SendShipDockedAsync(receivedShip));//(createdship) )TODO send shipdocked
+            receivedShip.DockingStatus = DockingStatus.ShipDockingRequested;        
+            Task.Run(() => _dockService.SendShipDockedAsync(receivedShip));
 
             return true;
         }
@@ -65,19 +56,8 @@ namespace DockService.App.Messaging
         private async Task<bool> HandleShipUndock(string message)
         {
           
-            Ship receivedShip = JsonSerializer.Deserialize<Ship>(message);
-
-            // IF i decide to use db:
-            /*
-            // get ship
-            Ship existingShip = await _dockService.GetShipAsync(receivedShip.Serial);
-            existingShip.DockStatus = DockStatus.NotStarted;
-
-            //save ship
-            await _dockService.SaveShipAsync(existingShip);
-            */
-         
-            Task.Run(() => _dockService.SendShipUndockedAsync(receivedShip));//existingShip
+            Ship receivedShip = JsonSerializer.Deserialize<Ship>(message);    
+            Task.Run(() => _dockService.SendShipUndockedAsync(receivedShip));
 
             return true;
         }
@@ -87,7 +67,7 @@ namespace DockService.App.Messaging
         private async Task<bool> HandleTugboatDispatched(string message)
         {
 
-            //TODO not yet sure how/what im going to do here
+            //TODO not yet sure how/what im going to do here this could/should be executed from the shipdock/undock service implementations
            /* Ship receivedShip = JsonSerializer.Deserialize<Ship>(message);
             if (receivedShip.ShipType == ShipType.Tugboat)
             {
@@ -117,9 +97,7 @@ namespace DockService.App.Messaging
         private async Task<bool> HandleShipUndocked(string message)
         {
            
-            Ship undockedShip = JsonSerializer.Deserialize<Ship>(message);
-
-           
+            Ship undockedShip = JsonSerializer.Deserialize<Ship>(message);           
             await _dockService.SendShipUndockedAsync(undockedShip);
 
             return true;
