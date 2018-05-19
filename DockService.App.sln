@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockService.App", "DockService.App\DockService.App.csproj", "{67B432DE-69F4-48BE-A636-7EEC1F699F41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockService.App", "DockService.App\DockService.App.csproj", "{67B432DE-69F4-48BE-A636-7EEC1F699F41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockService.Core", "DockService.Core\DockService.Core.csproj", "{354D0F0C-107D-4E06-9EE6-922C48DF336F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockService.Core", "DockService.Core\DockService.Core.csproj", "{354D0F0C-107D-4E06-9EE6-922C48DF336F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockService.Infrastructure", "DockService.Infrastructure\DockService.Infrastructure.csproj", "{B9D9DB4D-86AA-4520-A27C-D464B293DB4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockService.Infrastructure", "DockService.Infrastructure\DockService.Infrastructure.csproj", "{B9D9DB4D-86AA-4520-A27C-D464B293DB4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE18D7FD-9AE5-4872-ACB7-C72DC98433D3}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
