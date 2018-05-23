@@ -11,5 +11,10 @@ namespace DockService.Core.Models
         public Guid ShipId { get; set; }
         [Required]
         public Guid CustomerId { get; set; }
+
+		/// <summary>
+		/// Gets or sets the name of the ship.
+		/// </summary>
+		public string ShipName { get; set; }
     }
 }
