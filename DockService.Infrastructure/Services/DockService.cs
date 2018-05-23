@@ -40,21 +40,40 @@ namespace DockService.Infrastructure.Services
         #region -- Events --
         public async Task SendShipDockedAsync(Ship ship)
         {
+            #region -- convert to desired output--
+            DockEventModel dem = new DockEventModel();
+            dem.CustomerId = ship.CustomerId;
+            dem.ShipId = ship.Id;
+            #endregion
+
             Console.WriteLine("Docking ship: " + ship.Id);
-            await _eventPublisher.HandleEventAsync(EventTypes.ShipDocked, ship);
+            await _eventPublisher.HandleEventAsync(EventTypes.ShipDocked, dem);
         }
 
         public async Task SendShipUndockedAsync(Ship ship)
         {
+            #region -- convert to desired output--
+            DockEventModel dem = new DockEventModel();
+            dem.CustomerId = ship.CustomerId;
+            dem.ShipId = ship.Id;
+            #endregion
+
             Console.WriteLine("Undocking ship: " + ship.Id);
             await DeleteShipAsync(ship.Id);
-            await _eventPublisher.HandleEventAsync(EventTypes.ShipUndocked, ship);
+            await _eventPublisher.HandleEventAsync(EventTypes.ShipUndocked, dem);
         }
 
         public async Task SendTugboatDispatchedAsync(Ship ship)
         {
             Console.WriteLine("Dispatching tugboats to ship: " + ship.Id);
-            await _eventPublisher.HandleEventAsync(EventTypes.DispatchTugbboat, ship);
+
+            #region -- convert to desired output--
+            DockEventModel dem = new DockEventModel();
+            dem.CustomerId = ship.CustomerId;
+            dem.ShipId = ship.Id;
+            #endregion
+
+            await _eventPublisher.HandleEventAsync(EventTypes.DispatchTugbboat, dem);
         }
         #endregion
     }
