@@ -10,8 +10,8 @@ using Utf8Json;
 namespace DockService.App.Messaging
 {
     public class DockEventHandler : IEventHandlerCallback
-	{
-		private readonly IDockService _dockService;
+    {
+        private readonly IDockService _dockService;
         public DockEventHandler(IDockService dockService)
         {
             _dockService = dockService;
@@ -43,25 +43,25 @@ namespace DockService.App.Messaging
         #region --- Incoming Dock and Undock events ---
         private async Task<bool> HandleShipNearingHarbor(string message)
         {
-            
+
             Ship receivedShip = JsonSerializer.Deserialize<Ship>(message);
             Ship createdShip = await _dockService.CreateShipAsync(receivedShip);
             //Send tugboats to assist with undocking
-            Task.Run(() => _dockService.SendTugboatDispatchedAsync(createdShip));
+            await _dockService.SendTugboatDispatchedAsync(createdShip);
             //Execute docking method
-            Task.Run(() => _dockService.SendShipDockedAsync(createdShip));
+            await _dockService.SendShipDockedAsync(createdShip);
 
             return true;
         }
 
         private async Task<bool> HandleShipUndock(string message)
         {
-          
+
             Ship receivedShip = JsonSerializer.Deserialize<Ship>(message);
             //Send tugboats to assist with undocking
-            Task.Run(() => _dockService.SendTugboatDispatchedAsync(receivedShip));
+            await _dockService.SendTugboatDispatchedAsync(receivedShip);
             //Execute undocking method
-            Task.Run(() => _dockService.SendShipUndockedAsync(receivedShip));
+            await _dockService.SendShipUndockedAsync(receivedShip);
             return true;
         }
         #endregion
