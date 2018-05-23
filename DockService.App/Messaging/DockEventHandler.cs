@@ -45,7 +45,10 @@ namespace DockService.App.Messaging
         {
             
             Ship receivedShip = JsonSerializer.Deserialize<Ship>(message);
-            Ship createdShip = await _dockService.CreateShipAsync(receivedShip);      
+            Ship createdShip = await _dockService.CreateShipAsync(receivedShip);
+            //Send tugboats to assist with undocking
+            Task.Run(() => _dockService.SendTugboatDispatchedAsync(createdShip));
+            //Execute docking method
             Task.Run(() => _dockService.SendShipDockedAsync(createdShip));
 
             return true;
@@ -55,6 +58,9 @@ namespace DockService.App.Messaging
         {
           
             Ship receivedShip = JsonSerializer.Deserialize<Ship>(message);
+            //Send tugboats to assist with undocking
+            Task.Run(() => _dockService.SendTugboatDispatchedAsync(receivedShip));
+            //Execute undocking method
             Task.Run(() => _dockService.SendShipUndockedAsync(receivedShip));
             return true;
         }

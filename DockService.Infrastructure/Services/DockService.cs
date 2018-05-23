@@ -51,7 +51,7 @@ namespace DockService.Infrastructure.Services
             await _eventPublisher.HandleEventAsync(EventTypes.ShipUndocked, ship);
         }
 
-        public async Task SendTugboatDispatchedAsyn(Ship ship)
+        public async Task SendTugboatDispatchedAsync(Ship ship)
         {
             Console.WriteLine("Dispatching tugboats to ship: " + ship.Id);
             await _eventPublisher.HandleEventAsync(EventTypes.DispatchTugbboat, ship);

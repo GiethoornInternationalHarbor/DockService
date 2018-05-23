@@ -34,7 +34,7 @@ namespace DockService.Core.Services
         #region --outgoing events---
         Task SendShipDockedAsync(Ship ship);//send event that ship is docked
         Task SendShipUndockedAsync(Ship ship);//send event that ship is undocked
-        Task SendTugboatDispatchedAsyn(Ship ship);//send event that tugboats are dispatched
+        Task SendTugboatDispatchedAsync(Ship ship);//send event that tugboats are dispatched
         #endregion
     }
 }
