@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -8,13 +9,11 @@ namespace DockService.Core.Models
 {
    public class Ship
     {
-
         [Key]
-        public string Serial { get; set; }
-        public string Name { get; set; }
-
         [IgnoreDataMember]
-        public ShipType ShipType { get; set; }
-        public DockingStatus DockingStatus { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid DBKey { get; set; }
+        [Required]
+        public Guid Id { get; set; }
     }
 }

@@ -8,13 +8,30 @@ namespace DockService.Core.Services
 {
     public interface IDockService
     {
-        #region --required for persistance---
+        #region --persistance---
+        /// <summary>
+        /// Creates the ship asynchronous.
+        /// </summary>
+        /// <param name="ship">The Ship object.</param>
+        /// <returns></returns>
         Task<Ship> CreateShipAsync(Ship ship);
-        Task<Ship> GetShipAsync(string serial);
-        Task<Ship> SaveShipAsync(Ship ship);
+
+        /// <summary>
+        /// Get a ship
+        /// </summary>
+        /// <param name="shipId">The guid of the required ship.</param>
+        /// <returns></returns>
+        Task<Ship> GetShipAsync(Guid shipId);
+
+        /// <summary>
+        /// Delete a ship
+        /// </summary>
+        /// <param name="shipId">The guid of the ship.</param>
+        /// <returns></returns>
+        Task DeleteShipAsync(Guid shipId);
         #endregion
 
-        #region --send events---
+        #region --outgoing events---
         Task SendShipDockedAsync(Ship ship);//send event that ship is docked
         Task SendShipUndockedAsync(Ship ship);//send event that ship is undocked
         Task SendTugboatDispatchedAsyn(Ship ship);//send event that tugboats are dispatched
