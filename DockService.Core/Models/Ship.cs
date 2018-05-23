@@ -15,5 +15,7 @@ namespace DockService.Core.Models
         public Guid DBKey { get; set; }
         [Required]
         public Guid Id { get; set; }
+        [Required]
+        public Guid CustomerId { get; set; }
     }
 }

@@ -24,6 +24,8 @@ namespace DockService.Infrastructure.Migrations
                     b.Property<Guid>("DBKey")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<Guid>("CustomerId");
+
                     b.Property<Guid>("Id");
 
                     b.HasKey("DBKey");

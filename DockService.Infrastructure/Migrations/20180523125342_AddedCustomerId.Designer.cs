@@ -10,8 +10,8 @@ using System;
 namespace DockService.Infrastructure.Migrations
 {
     [DbContext(typeof(DockDbContext))]
-    [Migration("20180523105814_Trackfix04")]
-    partial class Trackfix04
+    [Migration("20180523125342_AddedCustomerId")]
+    partial class AddedCustomerId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,6 +24,8 @@ namespace DockService.Infrastructure.Migrations
                 {
                     b.Property<Guid>("DBKey")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("CustomerId");
 
                     b.Property<Guid>("Id");
 
