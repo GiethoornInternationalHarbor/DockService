@@ -11,9 +11,10 @@ using System;
 namespace DockService.Infrastructure.Migrations
 {
     [DbContext(typeof(DockDbContext))]
-    partial class DockDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180523170207_AddShipName")]
+    partial class AddShipName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
