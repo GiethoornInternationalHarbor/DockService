@@ -2,21 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.Serialization;
 using System.Text;
 
 namespace DockService.Core.Models
 {
-	public class Ship
+	public class Product
 	{
 		[Key]
-		[IgnoreDataMember]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public Guid DBKey { get; set; }
-		[Required]
 		public Guid Id { get; set; }
-		[Required]
-		public Guid CustomerId { get; set; }
 
 		/// <summary>
 		/// Gets or sets the name.
@@ -24,8 +18,11 @@ namespace DockService.Core.Models
 		public string Name { get; set; }
 
 		/// <summary>
-		/// Gets or sets the containers.
+		/// Gets or sets the type of the product.
 		/// </summary>
-		public List<Container> Containers { get; set; }
+		/// <value>
+		/// The type of the product.
+		/// </value>
+		public ProductType ProductType { get; set; }
 	}
 }
