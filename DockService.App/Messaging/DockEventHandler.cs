@@ -3,6 +3,7 @@ using DockService.Core.Models;
 using DockService.Core.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Utf8Json;
@@ -45,7 +46,7 @@ namespace DockService.App.Messaging
 		{
 
 			var receivedShip = JsonSerializer.Deserialize<DockEventModel>(message);
-			Ship createdShip = await _dockService.CreateShipAsync(new Ship() { Id = receivedShip.ShipId, Name = receivedShip.ShipName, Containers = receivedShip.Containers as List<Container>, CustomerId = receivedShip.CustomerId });
+			Ship createdShip = await _dockService.CreateShipAsync(new Ship() { Id = receivedShip.ShipId, Name = receivedShip.ShipName, Containers = receivedShip.Containers.ToList(), CustomerId = receivedShip.CustomerId });
 			//Send tugboats to assist with undocking
 			await _dockService.SendTugboatDispatchedAsync(createdShip);
 			//Execute docking method
