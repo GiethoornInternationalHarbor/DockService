@@ -12,9 +12,10 @@ using System;
 namespace DockService.Infrastructure.Migrations
 {
     [DbContext(typeof(DockDbContext))]
-    partial class DockDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180524073558_AddMissingContainersToShip")]
+    partial class AddMissingContainersToShip
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,8 +26,6 @@ namespace DockService.Infrastructure.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ContainerType");
 
                     b.Property<string>("SerialShippingContainerCode");
 

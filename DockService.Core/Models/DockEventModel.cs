@@ -9,6 +9,7 @@ namespace DockService.Core.Models
 	{
 		[Required]
 		public Guid ShipId { get; set; }
+
 		[Required]
 		public Guid CustomerId { get; set; }
 
@@ -16,5 +17,10 @@ namespace DockService.Core.Models
 		/// Gets or sets the name of the ship.
 		/// </summary>
 		public string ShipName { get; set; }
+
+		/// <summary>
+		/// Gets or sets the containers that are on the ship.
+		/// </summary>
+		public IEnumerable<Container> Containers { get; set; }
 	}
 }

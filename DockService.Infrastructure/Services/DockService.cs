@@ -45,7 +45,8 @@ namespace DockService.Infrastructure.Services
 			{
 				CustomerId = ship.CustomerId,
 				ShipId = ship.Id,
-				ShipName = ship.Name
+				ShipName = ship.Name,
+				Containers = ship.Containers
 			};
 			#endregion
 

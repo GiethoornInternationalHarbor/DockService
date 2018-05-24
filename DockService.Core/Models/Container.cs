@@ -2,30 +2,29 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.Serialization;
 using System.Text;
 
 namespace DockService.Core.Models
 {
-	public class Ship
+	public class Container
 	{
 		[Key]
-		[IgnoreDataMember]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public Guid DBKey { get; set; }
-		[Required]
 		public Guid Id { get; set; }
-		[Required]
-		public Guid CustomerId { get; set; }
 
 		/// <summary>
-		/// Gets or sets the name.
+		/// Gets or sets the serial shipping container code.
 		/// </summary>
-		public string Name { get; set; }
+		public string SerialShippingContainerCode { get; set; }
 
 		/// <summary>
-		/// Gets or sets the containers.
+		/// Gets or sets the products.
 		/// </summary>
-		public List<Container> Containers { get; set; }
+		public List<Product> Products { get; set; }
+
+		/// <summary>
+		/// Gets or sets the type of the container.
+		/// </summary>
+		public ContainerType ContainerType { get; set; }
 	}
 }
