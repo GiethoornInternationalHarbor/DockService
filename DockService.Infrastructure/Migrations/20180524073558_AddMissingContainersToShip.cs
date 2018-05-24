@@ -24,7 +24,7 @@ namespace DockService.Infrastructure.Migrations
                         column: x => x.ShipDBKey,
                         principalTable: "Ships",
                         principalColumn: "DBKey",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,7 +44,7 @@ namespace DockService.Infrastructure.Migrations
                         column: x => x.ContainerId,
                         principalTable: "Container",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
