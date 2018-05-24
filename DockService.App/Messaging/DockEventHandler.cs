@@ -60,9 +60,9 @@ namespace DockService.App.Messaging
 
 			var receivedShip = JsonSerializer.Deserialize<DockEventModel>(message);
 			//Send tugboats to assist with undocking
-			await _dockService.SendTugboatDispatchedAsync(new Ship() { Id = receivedShip.ShipId, Name = receivedShip.ShipName, Containers = receivedShip.Containers as List<Container>, CustomerId = receivedShip.CustomerId });
+			await _dockService.SendTugboatDispatchedAsync(new Ship() { Id = receivedShip.ShipId, Name = receivedShip.ShipName, Containers = receivedShip.Containers.ToList(), CustomerId = receivedShip.CustomerId });
 			//Execute undocking method
-			await _dockService.SendShipUndockedAsync(new Ship() { Id = receivedShip.ShipId, Name = receivedShip.ShipName, Containers = receivedShip.Containers as List<Container>, CustomerId = receivedShip.CustomerId });
+			await _dockService.SendShipUndockedAsync(new Ship() { Id = receivedShip.ShipId, Name = receivedShip.ShipName, Containers = receivedShip.Containers.ToList(), CustomerId = receivedShip.CustomerId });
 			return true;
 		}
 		#endregion
